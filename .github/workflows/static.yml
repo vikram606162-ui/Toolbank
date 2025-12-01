@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be Digital - Your Partner in Success</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #122c28;
+            color: #d4e157;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #122c28;
+            border-bottom: 1px solid rgba(88, 125, 120, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #d4e157;
+            text-decoration: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: #d4e157;
+        }
+
+        .login-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #d4e157;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .login-btn:hover {
+            opacity: 0.8;
+        }
+
+        .user-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #d4e157;
+        }
+
+        .cta-link {
+            color: #d4e157;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .cta-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://ext.same-assets.com/3677438696/1755331314.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #58b0bc;
+            color: #122c28;
+        }
+
+        .btn-primary:hover {
+            background-color: #4a9aa5;
+        }
+
+        .btn-secondary {
+            background-color: #a8d5e2;
+            color: #122c28;
+        }
+
+        .btn-secondary:hover {
+            background-color: #8fc5d4;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d4e157;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #0d2320;
+            border: 2px solid #d4e157;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #d4e157;
+            margin-bottom: 1rem;
+        }
+
+        .service-divider {
+            border-top: 1px solid #d4e157;
+            margin: 1rem 0;
+        }
+
+        .service-price {
+            font-size: 1.25rem;
+            color: #d4e157;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Offerings Section */
+        .offerings {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .offerings p {
+            color: #d1d4ca;
+            margin-bottom: 2rem;
+        }
+
+        /* Vision Section */
+        .vision {
+            padding: 5rem 0;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .vision-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .vision-content h3 {
+            font-size: 1.75rem;
+            color: #d4e157;
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d2320;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(88, 125, 120, 0.2);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            color: #d4e157;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: transparent;
+            border: 1px solid #d4e157;
+            color: #d4e157;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section input[type="email"]:focus {
+            outline: none;
+            border-color: #58b0bc;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #d4e157;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d4e157;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(88, 125, 120, 0.2);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #d4e157;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Be Digital</a>
+                <div class="header-right">
+                    <button class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <a href="#" class="login-btn">
+                        <span class="user-icon"></span>
+                        Log In
+                    </a>
+                    <a href="#contact" class="cta-link">Reach Out Today</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Your Partner in Success</h1>
+            <p>Affordable Website Setup for Just £499</p>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <img src="https://ext.same-assets.com/3677438696/108537902.jpeg" alt="Website Management Assistant">
+                    <div class="service-card-content">
+                        <h3>Website Management Assistant</h3>
+                        <div class="service-divider"></div>
+                        <p class="service-price">£200</p>
+                        <a href="#" class="btn btn-secondary">View Course</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <img src="https://ext.same-assets.com/3677438696/1106637576.jpeg" alt="Boost up">
+                    <div class="service-card-content">
+                        <h3>Boost up</h3>
+                        <div class="service-divider"></div>
+                        <p class="service-price">£150</p>
+                        <a href="#" class="btn btn-secondary">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <img src="https://ext.same-assets.com/3677438696/1580414145.jpeg" alt="Website Design">
+                    <div class="service-card-content">
+                        <h3>Website Design</h3>
+                        <div class="service-divider"></div>
+                        <p class="service-price">£300</p>
+                        <a href="#" class="btn btn-secondary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offerings Section -->
+    <section class="offerings">
+        <div class="container">
+            <h2 class="section-title">Our Offerings</h2>
+            <p>We don't have any products to show right now.</p>
+            <a href="#" class="btn btn-secondary">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision">
+        <div class="container">
+            <h2 class="section-title">Vision</h2>
+            <div class="vision-grid">
+                <div class="vision-image">
+                    <img src="https://ext.same-assets.com/3677438696/1796608934.jpeg" alt="Our Mission">
+                </div>
+                <div class="vision-content">
+                    <h3>Our Mission</h3>
+                    <p>At Be Digital, we are committed to empowering businesses and individuals by enhancing their online presence. Specializing in website creation, we help increase visibility and engagement through tailored digital solutions at a competitive price. With a complete setup for only £499, we turn aspirations into reality, ensuring that every client achieves their unique digital goals.</p>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <img src="https://ext.same-assets.com/3677438696/1831008285.jpeg" alt="Gallery 1">
+                <img src="https://ext.same-assets.com/3677438696/90053471.jpeg" alt="Gallery 2">
+                <img src="https://ext.same-assets.com/3677438696/1278930854.jpeg" alt="Gallery 3">
+                <img src="https://ext.same-assets.com/3677438696/900006407.jpeg" alt="Gallery 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Newsletter -->
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <form>
+                        <label for="email" style="color: #d4e157; display: block; margin-bottom: 0.5rem;">Email *</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter">
+                            <span>Yes, subscribe me to your newsletter. *</span>
+                        </label>
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Be Digital</h3>
+                    <p style="margin-bottom: 1rem;">0788906865</p>
+                    <p style="margin-bottom: 2rem;">narayansinghtiwana@gmail.com</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Accessibility Statement</a>
+                        <a href="#">Shipping Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Refund Policy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright">© 2035 by Be Digital. Powered and secured by Wix</p>
+                <div class="social-links">
+                    <a href="#"><img src="https://ext.same-assets.com/3677438696/2018522447.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://ext.same-assets.com/3677438696/288617167.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://ext.same-assets.com/3677438696/3715879088.png" alt="X"></a>
+                    <a href="#"><img src="https://ext.same-assets.com/3677438696/4012940114.png" alt="TikTok"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
